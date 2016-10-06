@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>C:\Program Files (x86)\Point Grey Research\FlyCapture2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Point Grey Research\FlyCapture2\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Link>
+      <AdditionalDependencies>FlyCapture2d.lib;FlyCapture2GUI_GTKmmd.lib;FlyCapture2GUId.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\Program Files (x86)\Point Grey Research\FlyCapture2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files (x86)\Point Grey Research\FlyCapture2\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Link>
+      <AdditionalDependencies>FlyCapture2.lib;FlyCapture2GUI_GTKmm.lib;FlyCapture2GUI.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>C:\Program Files\Point Grey Research\FlyCapture2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Point Grey Research\FlyCapture2\lib64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Link>
+      <AdditionalDependencies>FlyCapture2d.lib;FlyCapture2GUI_GTKmmd.lib;FlyCapture2GUId.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>C:\Program Files\Point Grey Research\FlyCapture2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Program Files\Point Grey Research\FlyCapture2\lib64;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>FlyCapture2.lib;FlyCapture2GUI.lib;FlyCapture2GUI_GTKmm.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup />
+</Project>
