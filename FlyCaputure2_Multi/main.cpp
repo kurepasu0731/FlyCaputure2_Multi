@@ -5,6 +5,9 @@
 
 #include "PGROpenCV.h"
 
+#define A_THRESH_VAL -5
+
+
 //// OpenCVのバージョンを取得してpragma文でライブラリを読み込む
 //#define CV_VERSION_STR CVAUX_STR(CV_MAJOR_VERSION) CVAUX_STR(CV_MINOR_VERSION) CVAUX_STR(CV_SUBMINOR_VERSION)
 //
@@ -50,6 +53,24 @@ cv::Mat detectCorner(const cv::Mat &src)
 
 }
 
+//適応的閾値のテスト(srcはモノクロ)
+//普通の二値化と比較
+void adaptiveThresholdTest(const cv::Mat &src)
+{
+		//適応的閾値処理の確認//
+		cv::Mat adapBinImg, binImg;
+		cv::adaptiveThreshold(src, adapBinImg, 255, cv::ADAPTIVE_THRESH_MEAN_C, cv::THRESH_BINARY, 7, A_THRESH_VAL);
+		cv::threshold(src, binImg, 150, 255, cv::THRESH_BINARY);
+
+		cv::Mat resizeAdap, resizeBin;
+		cv::resize(adapBinImg, resizeAdap, cv::Size(adapBinImg.cols * 0.5, adapBinImg.rows * 0.5));
+		cv::resize(binImg, resizeBin, cv::Size(binImg.cols * 0.5, binImg.rows * 0.5));
+
+		cv::imshow("Threshold", resizeBin);
+		cv::imshow("adaptiveThreshold", resizeAdap);
+		//適応的閾値処理の確認//
+}
+
 int main( int argc, char* argv[] )
 {
 	// 起動したいカメラインデックスを指定
@@ -67,8 +88,14 @@ int main( int argc, char* argv[] )
 
 		//コーナー点を検出
 		pgrOpenCV.showCapImg(detectCorner(pgrOpenCV.getVideo()));
+
+		//適応的閾値処理と普通の二値化の比較
+		adaptiveThresholdTest(pgrOpenCV.getVideo());
+
+		//ノーマル
 		//pgrOpenCV.showCapImg(pgrOpenCV.getVideo());
 		
+		//うまくいかない？
 		//pgrOpenCV.CameraCapture(cap);
 		//pgrOpenCV.showCapImg(cap);
 
