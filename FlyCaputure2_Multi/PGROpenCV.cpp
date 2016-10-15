@@ -338,7 +338,7 @@ void TPGROpenCV::showCapImg(cv::Mat cap)
 	//ˆø‚«”‚É‰½‚àw’è‚µ‚È‚©‚Á‚½ê‡‚Í‚±‚±‚ÅB‰e‰æ‘œ‚ğæ“¾
 	//if (cap.data == NULL)
 	//	cap = getVideo();
-	cv::resize(cap, cap, cv::Size(), 0.8, 0.8);
+	//cv::resize(cap, cap, cv::Size(), 0.8, 0.8);
 	cv::imshow(windowNameCamera, cap);
 	cv::waitKey(1);
 
